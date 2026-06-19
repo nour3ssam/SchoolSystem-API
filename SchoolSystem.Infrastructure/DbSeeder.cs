@@ -58,6 +58,40 @@ namespace SchoolSystem.Infrastructure
             }
             #endregion
 
+
+
+            #region Subject
+            if (!context.Subjects.Any())
+            {
+                var Subjects = new List<Subject>()
+                {
+                    new Subject
+                    {
+                        Name = "Database",
+                        Period = 3
+                    },
+                    new Subject
+                    {
+                        Name = "Algorithms",
+                        Period = 2
+                    },
+                    new Subject
+                    {
+                        Name = "Artificial Intelligence",
+                        Period = 2
+                    },
+                    new Subject
+                    {
+                        Name = "Operating Systems",
+                        Period = 3
+                    }
+                };
+                await context.Subjects.AddRangeAsync(Subjects);
+                await context.SaveChangesAsync();
+
+            }
+            #endregion
+
         }
     }
 }

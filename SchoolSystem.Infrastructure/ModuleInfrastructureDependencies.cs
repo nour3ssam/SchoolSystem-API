@@ -15,9 +15,10 @@ namespace SchoolSystem.Infrastructure
         public static IServiceCollection AddInfrastructureDependencies(this IServiceCollection services,
            IConfiguration configuration)
         {
-            services.AddTransient<IStudentRepo, StudentRepo>();
-            services.AddTransient<IDepartmentRepo, DepartmentRepo>();
-            services.AddTransient(typeof(IGenericRepo<>), typeof(GenericRepo<>));
+            services.AddScoped<IStudentRepo, StudentRepo>();
+            services.AddScoped<IDepartmentRepo, DepartmentRepo>();
+            services.AddScoped<ISubjectRepo, SubjectRepo>();
+            services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
 
 
             //Connect To DB
